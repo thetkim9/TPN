@@ -148,13 +148,13 @@ idx = np.argsort(-prob)
 # Output the prediction.
 video_name = args.frame_folder if args.frame_folder is not None else args.video_file
 print('RESULT ON ' + video_name)
-for i in range(0, 5):
+for i in range(len(model.CLASSES)):
     print('{:.3f} -> {}'.format(prob[idx[i]], model.CLASSES[idx[i]]))
 
 # Render output frames with prediction text.
 if args.rendered_output is not None:
     index = 0
-    for i in range(5):
+    for i in range(len(model.CLASSES)):
         if prob[idx[i]]>prob[idx[index]]:
             index = i
     print(model.CLASSES[idx[index]])
