@@ -7,7 +7,8 @@ RUN mkdir ckpt
 RUN cd ckpt
 RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=15HHKGIhksTf0dSmgxrTsoHzZxF6n7eRa' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=15HHKGIhksTf0dSmgxrTsoHzZxF6n7eRa" -O sthv2_tpn.pth && rm -rf /tmp/cookies.txt
 RUN cd ..
-COPY demo .
+RUN mkdir demo
+COPY demo demo
 RUN cd demo
 RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=14VYS8hGA5i1J70qBqrUqLiDxJq_FgXiW' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=14VYS8hGA5i1J70qBqrUqLiDxJq_FgXiW" -O demo.mp4 && rm -rf /tmp/cookies.txt
 RUN cd ..
