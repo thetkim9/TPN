@@ -27,7 +27,12 @@ RUN export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 RUN conda install gxx_linux-64=7.3
 RUN apt -y install git
 RUN conda install -c anaconda cython
-COPY . .
+RUN mv demo.mp4 demo
+RUN mv sthv2_tpn.pth ckpt
+RUN mkdir mmaction
+COPY mmaction mmaction
+COPY setup.py .
 RUN python setup.py develop
+COPY . .
 EXPOSE 80
 CMD python ./test_video.py config_files/sthv2/tsm_tpn.py ckpt/sthv2_tpn.pth
