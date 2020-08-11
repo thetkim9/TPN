@@ -2,6 +2,7 @@ FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-devel
 ENV LANG C.UTF-8
 RUN apt-get update
 RUN apt-get install -y build-essential
+RUN apt-get -y install wget
 RUN mkdir ckpt
 RUN cd ckpt
 RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=15HHKGIhksTf0dSmgxrTsoHzZxF6n7eRa' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=15HHKGIhksTf0dSmgxrTsoHzZxF6n7eRa" -O sthv2_tpn.pth && rm -rf /tmp/cookies.txt
