@@ -13,7 +13,6 @@ RUN cd demo
 RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=14VYS8hGA5i1J70qBqrUqLiDxJq_FgXiW' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=14VYS8hGA5i1J70qBqrUqLiDxJq_FgXiW" -O demo.mp4 && rm -rf /tmp/cookies.txt
 RUN cd ..
 RUN conda install pytorch==1.2.0 torchvision==0.4.0 cudatoolkit=9.2 -c pytorch
-RUN apt -y install python3-pip
 RUN conda install -c anaconda flask
 RUN conda install -c anaconda "Pillow<7"
 RUN conda install -c anaconda requests
@@ -28,8 +27,8 @@ RUN export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 RUN conda install gxx_linux-64=7.3
 RUN apt -y install git
 RUN apt-get -y install python3-flask
-RUN pip3 install cython
-RUN python3 setup.py develop
+RUN conda install -c anaconda cython
+RUN python setup.py develop
 COPY . .
 EXPOSE 80
-CMD python3 ./test_video.py config_files/sthv2/tsm_tpn.py ckpt/sthv2_tpn.pth
+CMD python ./test_video.py config_files/sthv2/tsm_tpn.py ckpt/sthv2_tpn.pth
