@@ -31,6 +31,7 @@ RUN mv demo.mp4 demo
 RUN mv sthv2_tpn.pth ckpt
 RUN mkdir mmaction
 COPY mmaction mmaction
+COPY README.md .
 COPY setup.py .
 RUN python setup.py develop
 COPY . .

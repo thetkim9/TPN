@@ -153,7 +153,8 @@ for i in range(0, 5):
 
 # Render output frames with prediction text.
 if args.rendered_output is not None:
-    prediction = model.CLASSES[idx[0]]
-    rendered_frames = render_frames(raw_frames, prediction)
-    clip = mpy.ImageSequenceClip(rendered_frames, fps=fps)
-    clip.write_videofile(args.rendered_output)
+    index = 0
+    for i in range(5):
+        if prob[idx[i]]>prob[idx[index]]:
+            index = i
+    print(model.CLASSES[idx[index]])
