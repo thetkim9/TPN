@@ -26,7 +26,7 @@ RUN export CPATH=/usr/local/cuda/include:$CPATH
 RUN export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 RUN conda install gxx_linux-64=7.3
 RUN apt -y install git
-RUN apt-get -y install python3-flask
+RUN apt-get -y install python-flask
 RUN conda install -c anaconda cython
 RUN python setup.py develop
 COPY . .
