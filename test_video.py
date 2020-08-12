@@ -150,17 +150,16 @@ class Model:
         print('RESULT ON ' + video_name)
 
         res = ""
-        for i in range(3):
-            res += '{:.3f} -> {}\n'.format(prob[idx[i]], self.model.CLASSES[idx[i]])
+        for i in range(5):
+            res += "{:.3f} -> {} \n".format(prob[idx[i]], self.model.CLASSES[idx[i]])
 
 
         # Render output frames with prediction text.
-        '''
         if args.rendered_output is not None:
             index = 0
             for i in range(len(self.model.CLASSES)):
                 if prob[idx[i]]>prob[idx[index]]:
                     index = i
             print(self.model.CLASSES[idx[index]])
-        '''
+        res = self.model.CLASSES[idx[index]]
         return res
