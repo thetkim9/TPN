@@ -44,7 +44,7 @@ class thread_with_trace(threading.Thread):
 def run_model(user_id):
     # options
     parser = argparse.ArgumentParser(description="test TPN on a single video")
-    parser.add_argument('--video_file', type=str, default='input/'+user_id+'.mp4')
+    parser.add_argument('--video_file', type=str, default='input/'+str(user_id)+'.mp4')
     parser.add_argument('--frame_folder', type=str, default=None)
     args = parser.parse_args()
     results[user_id] = model.predict(args)
