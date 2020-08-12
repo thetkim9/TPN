@@ -149,9 +149,9 @@ class Model:
         video_name = args.frame_folder if args.frame_folder is not None else args.video_file
         print('RESULT ON ' + video_name)
 
-        res = ""
+        res = []
         for i in range(3):
-            res += "{:.3f} -> {} \n".format(prob[idx[i]], self.model.CLASSES[idx[i]])
+            res.append("{:.3f} -> {}".format(prob[idx[i]], self.model.CLASSES[idx[i]]))
         '''
         print(self.model.CLASSES)
 
