@@ -34,6 +34,9 @@ COPY mmaction mmaction
 COPY README.md .
 COPY setup.py .
 RUN python setup.py develop
+RUN wget -P pretrain http://relation.csail.mit.edu/models/TRN_moments_RGB_InceptionV3_TRNmultiscale_segment8_best.pth.tar -O - | tar -xvf
+RUN wget -P pretrain http://relation.csail.mit.edu/models/moments_categories.txt
+RUN mv TRN_moments_RGB_InceptionV3_TRNmultiscale_segment8_best.pth ckpt
 COPY . .
 EXPOSE 80
 CMD python server.py

@@ -150,9 +150,10 @@ class Model:
         print('RESULT ON ' + video_name)
 
         res = ""
-        for i in range(5):
+        for i in range(3):
             res += "{:.3f} -> {} \n".format(prob[idx[i]], self.model.CLASSES[idx[i]])
 
+        '''
         print(self.model.CLASSES)
 
         # Render output frames with prediction text.
@@ -162,4 +163,5 @@ class Model:
                 index = i
         print(self.model.CLASSES[idx[index]])
         res = self.model.CLASSES[idx[index]]
+        '''
         return res
