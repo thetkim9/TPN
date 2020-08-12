@@ -155,11 +155,10 @@ class Model:
 
 
         # Render output frames with prediction text.
-        if args.rendered_output is not None:
-            index = 0
-            for i in range(len(self.model.CLASSES)):
-                if prob[idx[i]]>prob[idx[index]]:
-                    index = i
-            print(self.model.CLASSES[idx[index]])
+        index = 0
+        for i in range(len(self.model.CLASSES)):
+            if prob[idx[i]]>prob[idx[index]]:
+                index = i
+        print(self.model.CLASSES[idx[index]])
         res = self.model.CLASSES[idx[index]]
         return res
