@@ -114,7 +114,7 @@ document.getElementById("submit").onclick = () => {
     })
     .then(response => {return response.json();})
     .then(data => {
-        document.getElementById("result").innerHTML = data.result;
+        document.getElementById("result").innerHTML = "<pre>" + data.result + "</pre>";
         $.get('remove/' + user_id);
         //document.getElementById("cancel").style.visibility = "hidden";
         document.getElementById("cancel").disabled = true;

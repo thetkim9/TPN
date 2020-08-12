@@ -122,7 +122,7 @@ class Model:
         print("preload start")
         parser = argparse.ArgumentParser(description="test TPN on a single video")
         parser.add_argument('--config', type=str, default="config_files/sthv2/tsm_tpn.py", help='model init config')
-        parser.add_argument('--checkpoint', type=str, default="ckpt/TRN_moments_RGB_InceptionV3_TRNmultiscale_segment8_best.pth")
+        parser.add_argument('--checkpoint', type=str, default="ckpt/sthv2_tpn.pth")
         parser.add_argument('--label_file', type=str, default='demo/category.txt')
         args = parser.parse_args()
         self.model = init_recognizer(args.config, checkpoint=args.checkpoint, label_file=args.label_file)
@@ -152,7 +152,6 @@ class Model:
         res = ""
         for i in range(3):
             res += "{:.3f} -> {} \n".format(prob[idx[i]], self.model.CLASSES[idx[i]])
-
         '''
         print(self.model.CLASSES)
 
