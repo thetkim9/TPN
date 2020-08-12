@@ -155,8 +155,6 @@ def health():
 if __name__ == '__main__':
     path = os.path.join(".", "input")
     os.mkdir(path)
-    path = os.path.join(".", "output")
-    os.mkdir(path)
 
     global model
     model = Model()
