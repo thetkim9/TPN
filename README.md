@@ -1,5 +1,11 @@
 # Temporal Pyramid Network for Action Recognition 
 
+## Run demo
+
+Try running the service straight away!!
+
+Click the button below to go to the hosting site. Then, click the blue link, which is the endpoint.
+
 ![image](./docs/figures/framework.png)
 [[Paper](https://arxiv.org/pdf/2004.03548.pdf)]
 [[Project Page](https://decisionforce.github.io/TPN/)]
