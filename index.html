@@ -51,28 +51,28 @@
                 <hr>
                 <div id="link">
                     <A>Github Repo : </A> <A href="https://github.com/thetkim9/TPN"> Github</A>
+                    <br>
                     <A>Ainize 2.0 : </A> <A href="https://master-tpn-thetkim9.endpoint.ainize.ai"> Ainize</A>
                 </div>
                 <div id="logo">
-                    <img src="{{ url_for('static', filename='logo.png') }}" width="125" height="93">
+                    <img src="{{ url_for('static', filename='logo.png') }}" width="62" height="46">
                 </div>
                 <hr class="solid">
-                <h3>Instructions</h3>
+                <h3>Note</h3>
                 <hr>
-                <p>Fully supported on chrome only</p>
-                <p>The pretrained model mainly recognizes interaction between object and human such as throwing.</p>
+                <p>It works best in Google Chrome browser.</p>
+                <p>The pre-trained model mainly recognises the interaction between object and human.</p>
                 <p>Grant access to camera and microphone to use the 'webcam' option</p>
-                <p>Operation generally takes around 20 seconds (tested on 9 second video, 0 pending requests ahead)</p>
-                <p>The time taken may vary depending on the length of your video and the number of pending requests</p>
+                <p>It generally takes around 20 seconds to get the result, </p>
+                <p>and it depends on the length of your video and the number of pending requests.</p>
                 <hr>
-                <p>Please select input type:</p>
+                <p>Input type:</p>
                 <input type="radio" id="mp4" name="input" value="mp4" checked>
                 <label for="mp4">mp4</label>
                 <input type="radio" id="webcam" name="input" value="webcam">
                 <label for="webcam">webcam</label>
                 <div id = 'inputVideo' >
                     <div id="mp40" style="position:relative; top:0; left:0;">
-                        <label for="source">insert a video : </label>
                         <input type = 'file' id = 'source' onchange="readURL(this);" style="margin-right: 10px; margin-bottom: 10px;">
                     </div>
                     <div id="webcam0" style="position:relative; top:0; left:0;">
@@ -104,16 +104,15 @@
                 </div>
                 <hr>
                 <div id="operate">
-                    <input type="submit" id = "submit" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Submit Request">
-                    <input type="submit" id = "cancel" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Cancel Request"
+                    <input type="submit" id = "submit" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Submit">
+                    <input type="submit" id = "cancel" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Cancel"
                     disabled="disabled">
                 </div>
                 <br>
                 <progress id="progress_bar" value="0" max="100"> </progress>
                 <p id="load">loading<span id="dots">.</span></p>
-                <p>time spent: <span id="time">0</span>s</p>
+                <p><span id="time">0</span>s</p>
                 <p>Number of pending requests ahead: <span id="pending">0</span></p>
-                <hr>
                 <script>
                     var parent = document.getElementById("inputVideo");
                     document.getElementById("webcam0").style.display = "none";
