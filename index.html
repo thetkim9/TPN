@@ -9,6 +9,24 @@
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         <title>tpn</title>
+        <style>
+            #inputBox {
+                display: inline-block;
+                vertical-align: top;
+            }
+            #resultBox {
+                display: inline-block;
+                vertical-align: top;
+            }
+            #link {
+                display: inline-block;
+                vertical-align: top;
+            }
+            #logo {
+                display: inline-block;
+                vertical-align: top;
+            }
+        </style>
         <script>
             function readURL(input) {
               if (input.files && input.files[0]) {
@@ -30,18 +48,23 @@
             <div class="jumbotron mt-3">
 
                 <h1>Action Recognition from Video</h1>
-                <A>Git Hub Repo : </A> <A href="https://github.com/thetkim9/TPN"> TPN</A>
-                <br>
-
+                <hr>
+                <div id="link">
+                    <A>Github Repo : </A> <A href="https://github.com/thetkim9/TPN"> Github</A>
+                    <A>Ainize 2.0 : </A> <A href="https://master-tpn-thetkim9.endpoint.ainize.ai"> Ainize</A>
+                </div>
+                <div id="logo">
+                    <img src="{{ url_for('static', filename='logo.png') }}">
+                </div>
                 <hr class="solid">
-
                 <h3>Instructions</h3>
+                <hr>
                 <p>Fully supported on chrome only</p>
                 <p>The pretrained model mainly recognizes interaction between object and human such as throwing.</p>
                 <p>Grant access to camera and microphone to use the 'webcam' option</p>
                 <p>Operation generally takes around 20 seconds (tested on 9 second video, 0 pending requests ahead)</p>
                 <p>The time taken may vary depending on the length of your video and the number of pending requests</p>
-                <br>
+                <hr>
                 <p>Please select input type:</p>
                 <input type="radio" id="mp4" name="input" value="mp4" checked>
                 <label for="mp4">mp4</label>
@@ -58,25 +81,18 @@
                         <input type="button" id="startButton" class="button" value="start recording">
                         <input type="button" id="stopButton" class="button" value="stop recording">
                     </div>
-                </div><br>
-                <div id="operate">
-                    <input type="submit" id = "submit" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Submit Request">
-                    <input type="submit" id = "cancel" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Cancel Request"
-                    disabled="disabled">
-                </div><br>
-                <progress id="progress_bar" value="0" max="100"> </progress>
-                <p id="load">loading<span id="dots">.</span></p>
-                <p>time spent: <span id="time">0</span>s</p>
-                <p>Number of pending requests ahead: <span id="pending">0</span></p>
-                <div id ='resultBox' style="margin-left: auto; margin-right: auto;">
-                    <p id='errorbox'></p>
-                    <span>Input: </span>
+                </div>
+                <hr>
+                <div id="inputBox">
+                <span>Input: </span>
                     <br>
                     <video id="preload" width="320" height="240" controls>
                         <source src="{{ url_for('static', filename='sampleIn.mp4') }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <br>
+                </div>
+                <div id ='resultBox' style="margin-left: auto; margin-right: auto;">
+                    <p id='errorbox'></p>
                     <span>Output: </span>
                     <p id="result">
                         0.834 -> Throwing something in the air and catching it
@@ -86,6 +102,18 @@
                         0.028 -> Throwing something in the air and letting it fall
                     </p>
                 </div>
+                <hr>
+                <div id="operate">
+                    <input type="submit" id = "submit" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Submit Request">
+                    <input type="submit" id = "cancel" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Cancel Request"
+                    disabled="disabled">
+                </div>
+                <br>
+                <progress id="progress_bar" value="0" max="100"> </progress>
+                <p id="load">loading<span id="dots">.</span></p>
+                <p>time spent: <span id="time">0</span>s</p>
+                <p>Number of pending requests ahead: <span id="pending">0</span></p>
+                <hr>
                 <script>
                     var parent = document.getElementById("inputVideo");
                     document.getElementById("webcam0").style.display = "none";
