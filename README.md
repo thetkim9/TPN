@@ -8,6 +8,8 @@ Click the button below to go to the hosting site. Then, click the blue link, whi
 
 [![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/thetkim9/TPN)
 
+
+## General
 ![image](./docs/figures/framework.png)
 [[Paper](https://arxiv.org/pdf/2004.03548.pdf)]
 [[Project Page](https://decisionforce.github.io/TPN/)]
