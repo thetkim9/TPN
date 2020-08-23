@@ -46,7 +46,6 @@
     <body>
         <div class = "container">
             <div class="jumbotron mt-3">
-
                 <h1>Action Recognition from Video</h1>
                 <hr>
                 <div id="link">
@@ -84,7 +83,7 @@
                 </div>
                 <hr>
                 <div id="inputBox">
-                <span>Input: </span>
+                    <span>Input: </span>
                     <br>
                     <video id="preload" width="320" height="240" controls>
                         <source src="{{ url_for('static', filename='sampleIn.mp4') }}" type="video/mp4">
@@ -92,8 +91,8 @@
                     </video>
                 </div>
                 <div id ='resultBox' style="margin-left: auto; margin-right: auto;">
-                    <p id='errorbox'></p>
                     <span>Output: </span>
+                    <p id='errorbox'></p>
                     <p id="result">
                         0.834 -> Throwing something in the air and catching it
                         <br>
